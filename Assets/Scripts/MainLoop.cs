@@ -1,29 +1,36 @@
 ﻿using System.Collections;
-using System.Reflection.Emit;
 using UnityEngine;
 
 public class MainLoop : MonoBehaviour
 {
-    [SerializeField] private float _musicTimer;
+    [SerializeField] private float _songLength;
     [SerializeField] private float _fartLength;
     [SerializeField] private float _timeFartShouldHappen;
     [SerializeField] private float _durationOfFartWindow;
     [SerializeField] private AudioClip _song;
     [SerializeField] private AudioClip _fart;
 
+    [SerializeField] private Feedback _feedback;
+
+    private float _musicTimer;
     private float _earliestFartTime;
     private float _latestFartTime;
     private bool _songPlaying;
     private bool _canFart;
     private AudioSource _audioSource;
 
+    public float EarliestFartTime => _earliestFartTime;
+    public float LatestFartTime => _latestFartTime;
+    public float MusicTime => _musicTimer;
+    public bool SongPlaying => _songPlaying;
+
     private void Awake()
     {
-        _musicTimer = _song.length;
+        _songLength = _song.length;
         _fartLength = _fart.length;
 
-        _earliestFartTime = _song.length - _timeFartShouldHappen;
-        _latestFartTime = _earliestFartTime - 2;
+        _earliestFartTime = _timeFartShouldHappen;
+        _latestFartTime = _timeFartShouldHappen + _durationOfFartWindow;
 
         _songPlaying = false;
         _canFart = false;
@@ -43,7 +50,7 @@ public class MainLoop : MonoBehaviour
 
         if (_songPlaying)
         {
-            _musicTimer -= Time.deltaTime;
+            _musicTimer += Time.deltaTime;
         }
 
         if (_canFart && Input.GetKeyDown(KeyCode.Space))
@@ -65,11 +72,11 @@ public class MainLoop : MonoBehaviour
 
     private void EvaluateFartTiming(float timestamp)
     {
-        if (timestamp > _earliestFartTime)
-            print($"too early {timestamp}");
-        else if (timestamp < _earliestFartTime && timestamp > _latestFartTime)
-            print($"great! {timestamp}");
+        if (timestamp < _earliestFartTime)
+            _feedback.UpdateText("Too Early");
+        else if (timestamp > _earliestFartTime && timestamp < _latestFartTime)
+            _feedback.UpdateText("Great!");
         else
-            print($"too late {timestamp}");
+            _feedback.UpdateText("Too Late");
     }
 }
