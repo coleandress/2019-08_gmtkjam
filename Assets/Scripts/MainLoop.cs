@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MainLoop : MonoBehaviour
 {
@@ -18,6 +19,8 @@ public class MainLoop : MonoBehaviour
     private float _latestFartTime;
     private bool _songPlaying;
     private bool _canFart;
+    private bool _isGameOver;
+    private bool _isAWin;
     private AudioSource _audioSource;
     private SongTiming _songTiming;
     private FartStatus _fartStatus;
@@ -39,6 +42,8 @@ public class MainLoop : MonoBehaviour
 
         _songPlaying = false;
         _canFart = false;
+        _isGameOver = false;
+        _isAWin = false;
 
         _audioSource = GetComponent<AudioSource>();
         _audioSource.clip = _song;
@@ -48,14 +53,21 @@ public class MainLoop : MonoBehaviour
         _glassStatus = GlassStatus.GlassNotPresent;
     }
 
+    private void Start()
+    {
+        _feedback.UpdateText("Press Space to Begin");
+    }
+
     private void Update()
     {
-        if (!_songPlaying & Input.GetKeyDown(KeyCode.Space))
+        if (!_songPlaying && !_isGameOver && Input.GetKeyDown(KeyCode.Space))
         {
             _audioSource.Play();
             _songPlaying = true;
             _songTiming = SongTiming.BeforeFartWindow;
             StartCoroutine(FartDelay());
+
+            _feedback.UpdateText("");
         }
 
         if (_songPlaying)
@@ -114,6 +126,29 @@ public class MainLoop : MonoBehaviour
             _glassStatus = GlassStatus.PostGlassBroken;
         }
 
+        // Handle game over
+        if (_isGameOver)
+        {
+            if (_isAWin)
+            {
+                if (Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Keypad1))
+                {
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                }
+            }
+            else
+            {
+                if (Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Keypad1))
+                {
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                }
+                else if (Input.GetKeyDown(KeyCode.Alpha2) || Input.GetKeyDown(KeyCode.Keypad2))
+                {
+                    SceneManager.LoadScene(SceneManager.sceneCountInBuildSettings - 1);
+                }
+            }
+        }
+
         print($"{_songTiming}     {_glassStatus}");
     }
 
@@ -125,21 +160,37 @@ public class MainLoop : MonoBehaviour
 
     private void EvaluateFartTiming(float timestamp)
     {
+        _isGameOver = true;
+
         if (timestamp < _earliestFartTime)
         {
-            _feedback.UpdateText("Too Early");
+            //_feedback.UpdateText("Too Early");
+            _audioSource.Stop();
+            _songPlaying = false;
             _fartStatus = FartStatus.FartedAndCaught;
+            _feedback.UpdateText(
+                "You let it loose too soon.\n" +
+                "Press 1 to retry or 2 to quit.");
             StartCoroutine(PlayCaughtSoundAfterDelay());
         }
         else if (timestamp > _earliestFartTime && timestamp < _latestFartTime)
         {
-            _feedback.UpdateText("Great!");
+            //_feedback.UpdateText("Great!");
+            _feedback.UpdateText(
+                "Covert cheese cutting complete.\n" +
+                "Press 1 to continue.");
+            _isAWin = true;
             _fartStatus = FartStatus.FartedAndNotCaught;
         }
         else
         {
-            _feedback.UpdateText("Too Late");
+            //_feedback.UpdateText("Too Late");
+            _audioSource.Stop();
+            _songPlaying = false;
             _fartStatus = FartStatus.FartedAndCaught;
+            _feedback.UpdateText(
+                "Too late.  Better check your britches.\n" +
+                "Press 1 to retry or 2 to quit.");
             StartCoroutine(PlayCaughtSoundAfterDelay());
         }
     }
