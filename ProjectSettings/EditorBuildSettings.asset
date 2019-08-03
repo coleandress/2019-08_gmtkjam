@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/JGWentworth.unity
     guid: 418681a37aed72f4b916f6095e736d6c
   - enabled: 1
+    path: Assets/Scenes/Win.unity
+    guid: ac3cf698887e8854fb4188dffb21a3f9
+  - enabled: 1
     path: Assets/Scenes/Lose.unity
     guid: ed45a9e4a385ea74ea4616b75fb1c126
   m_configObjects: {}
