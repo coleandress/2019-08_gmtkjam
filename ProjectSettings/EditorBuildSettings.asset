@@ -9,11 +9,11 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: ebc9790e448a89044a4b45b1f8603ec0
   - enabled: 1
-    path: Assets/Scenes/LetMyPeopleGo.unity
-    guid: 87ed33133ed9f9a4eaca408674177043
-  - enabled: 1
     path: Assets/Scenes/Africa.unity
     guid: 0d6cd1c01cdd7f14998b25b6f4744079
+  - enabled: 1
+    path: Assets/Scenes/LetMyPeopleGo.unity
+    guid: 87ed33133ed9f9a4eaca408674177043
   - enabled: 1
     path: Assets/Scenes/Rapadoo.unity
     guid: 54b0d25794dd9694789761cb664595e9

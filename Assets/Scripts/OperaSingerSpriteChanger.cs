@@ -31,21 +31,39 @@ public class OperaSingerSpriteChanger : MonoBehaviour
     private SpriteRenderer _spriteRenderer;
 
     private float cycleTimer;
+    private int _randomSpriteIndex;
+    private bool _timeToSwapSprite;
 
     private void Awake()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _spriteRenderer.sprite = singingSprites[0];
+        _randomSpriteIndex = 0;
 
         cycleTimer = spriteCycleTime;
     }
 
     private void Update()
     {
+        if (_mainLoop.SongPlaying && cycleTimer > 0)
+        {
+            cycleTimer -= Time.deltaTime;
+        }
+        else if (_mainLoop.SongPlaying)
+        {
+            _timeToSwapSprite = true;
+            cycleTimer = spriteCycleTime;
+        }
+
         switch (_mainLoop.GlassStatus)
         {
             case GlassStatus.GlassNotPresent:
-                _spriteRenderer.sprite = singingSprites[0];
+                if (_timeToSwapSprite)
+                {
+                    _randomSpriteIndex = Random.Range(0, singingSprites.Length - 1);
+                    _spriteRenderer.sprite = singingSprites[_randomSpriteIndex];
+                    _timeToSwapSprite = false;
+                }
                 break;
 
             case GlassStatus.GlassWhole:
@@ -64,5 +82,7 @@ public class OperaSingerSpriteChanger : MonoBehaviour
                 _spriteRenderer.sprite = postGlassBrokenSprite;
                 break;
         }
+
+        print(cycleTimer);
     }
 }

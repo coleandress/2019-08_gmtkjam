@@ -16,12 +16,14 @@ public class PlayerAnim : MonoBehaviour
     [SerializeField] private MainLoop _mainLoop;
 
     private SpriteRenderer _spriteRenderer;
+    private Animator _animator;
 
     private float _timeLeftPercentage;
 
     private void Awake()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
+        _animator = GetComponentInParent<Animator>();
     }
 
     private void Update()
@@ -29,11 +31,19 @@ public class PlayerAnim : MonoBehaviour
         _timeLeftPercentage = _mainLoop.MusicTime / _mainLoop.SongLength;
 
         if (!_mainLoop.IsGameOver && _timeLeftPercentage < .40)
+        {
             _spriteRenderer.sprite = _needToFart1;
+        }
         else if (!_mainLoop.IsGameOver && _timeLeftPercentage < .75)
+        {
             _spriteRenderer.sprite = _needToFart2;
+            _animator.Play("playerslowshake");
+        }
         else if (!_mainLoop.IsGameOver)
+        {
             _spriteRenderer.sprite = _needToFart3;
+            _animator.Play("playerfastshake");
+        }
     }
 
     public void FartAnim()
@@ -43,6 +53,7 @@ public class PlayerAnim : MonoBehaviour
 
     private IEnumerator PlayFartAnim()
     {
+        _animator.Play("playerneutral");
         _spriteRenderer.sprite = _farting;
         yield return new WaitForSeconds(2);
 
