@@ -532,6 +532,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 1403513857996388378, guid: 066fb46c178a2f04d89940f1716c44bb,
+        type: 3}
+      propertyPath: _mainLoop
+      value: 
+      objectReference: {fileID: 991304339}
     - target: {fileID: 8117191673785920982, guid: 066fb46c178a2f04d89940f1716c44bb,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -587,11 +592,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1403513857996388378, guid: 066fb46c178a2f04d89940f1716c44bb,
-        type: 3}
-      propertyPath: _mainLoop
-      value: 
-      objectReference: {fileID: 991304339}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 066fb46c178a2f04d89940f1716c44bb, type: 3}
 --- !u!1001 &822176402065235102
@@ -732,9 +732,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3102081772658974792, guid: 46a57729ea13f6744bde883d212f0bca,
         type: 3}
+      propertyPath: singingSprites.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3102081772658974792, guid: 46a57729ea13f6744bde883d212f0bca,
+        type: 3}
       propertyPath: _mainLoop
       value: 
       objectReference: {fileID: 991304339}
+    - target: {fileID: 3102081772658974792, guid: 46a57729ea13f6744bde883d212f0bca,
+        type: 3}
+      propertyPath: singingSprites.Array.data[3]
+      value: 
+      objectReference: {fileID: 21300000, guid: d2babbd4744973d4397a08e4ef3e0454,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 46a57729ea13f6744bde883d212f0bca, type: 3}
 --- !u!1001 &1664173469407855278

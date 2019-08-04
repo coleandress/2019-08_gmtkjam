@@ -23,7 +23,7 @@ public class OperaSingerSpriteChanger : MonoBehaviour
     [SerializeField] private float spriteCycleTime;
     [SerializeField] private Sprite[] singingSprites;
     [SerializeField] private Sprite glassWholeSprite;
-    [SerializeField] private Sprite glassCrackedSprite;
+    [SerializeField] private Sprite[] glassCrackedSprite;
     [SerializeField] private Sprite glassBrokenSprite;
     [SerializeField] private Sprite postGlassBrokenSprite;
     [SerializeField] private MainLoop _mainLoop;
@@ -33,12 +33,14 @@ public class OperaSingerSpriteChanger : MonoBehaviour
     private float cycleTimer;
     private int _randomSpriteIndex;
     private bool _timeToSwapSprite;
+    private bool _crackedGlassSpriteActive;
 
     private void Awake()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _spriteRenderer.sprite = singingSprites[0];
         _randomSpriteIndex = 0;
+        _crackedGlassSpriteActive = false;
 
         cycleTimer = spriteCycleTime;
     }
@@ -60,7 +62,7 @@ public class OperaSingerSpriteChanger : MonoBehaviour
             case GlassStatus.GlassNotPresent:
                 if (_timeToSwapSprite)
                 {
-                    _randomSpriteIndex = Random.Range(0, singingSprites.Length - 1);
+                    _randomSpriteIndex = Random.Range(0, singingSprites.Length);
                     _spriteRenderer.sprite = singingSprites[_randomSpriteIndex];
                     _timeToSwapSprite = false;
                 }
@@ -71,7 +73,12 @@ public class OperaSingerSpriteChanger : MonoBehaviour
                 break;
 
             case GlassStatus.GlassCracked:
-                _spriteRenderer.sprite = glassCrackedSprite;
+                if (!_crackedGlassSpriteActive)
+                {
+                    _crackedGlassSpriteActive = true;
+                    _randomSpriteIndex = Random.Range(0, glassCrackedSprite.Length);
+                    _spriteRenderer.sprite = glassCrackedSprite[_randomSpriteIndex];
+                }
                 break;
 
             case GlassStatus.GlassBroken:
@@ -83,6 +90,6 @@ public class OperaSingerSpriteChanger : MonoBehaviour
                 break;
         }
 
-        print(cycleTimer);
+        //print(Random.Range(0, glassCrackedSprite.Length));
     }
 }
