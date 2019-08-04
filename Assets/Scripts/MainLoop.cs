@@ -31,6 +31,12 @@ public class MainLoop : MonoBehaviour
     public float MusicTime => _musicTimer;
     public bool SongPlaying => _songPlaying;
     public GlassStatus GlassStatus => _glassStatus;
+    public float SongLength => _songLength;
+    public bool IsAWin => _isAWin;
+    public bool IsGameOver => _isGameOver;
+
+    // Need to replace with an Action
+    [SerializeField] private PlayerAnim _playerAnim;
 
     private void Awake()
     {
@@ -161,6 +167,7 @@ public class MainLoop : MonoBehaviour
     private void EvaluateFartTiming(float timestamp)
     {
         _isGameOver = true;
+        _playerAnim.FartAnim();
 
         if (timestamp < _earliestFartTime)
         {

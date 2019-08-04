@@ -393,6 +393,7 @@ MonoBehaviour:
   _fart: {fileID: 8300000, guid: ca404800547c0c948a5eed089226e65f, type: 3}
   _caughtClip: {fileID: 8300000, guid: 1fd601dbf9fc24d4c82f685ab9ee2044, type: 3}
   _feedback: {fileID: 2116190674}
+  _playerAnim: {fileID: 1819333458}
 --- !u!82 &991304340
 AudioSource:
   m_ObjectHideFlags: 0
@@ -638,6 +639,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1819333458 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1403513857996388378, guid: 066fb46c178a2f04d89940f1716c44bb,
+    type: 3}
+  m_PrefabInstance: {fileID: 8117191674036227057}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc7165f703e6c6f468913025770fc017, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2116190673
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -780,6 +793,11 @@ PrefabInstance:
       propertyPath: m_textInfo.pageCount
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5572296102473151796, guid: 35816f0d48cd1f343b03d52205fa28b2,
+        type: 3}
+      propertyPath: _mainLoop
+      value: 
+      objectReference: {fileID: 991304339}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 35816f0d48cd1f343b03d52205fa28b2, type: 3}
 --- !u!114 &2116190674 stripped
@@ -861,5 +879,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1403513857996388378, guid: 066fb46c178a2f04d89940f1716c44bb,
+        type: 3}
+      propertyPath: _mainLoop
+      value: 
+      objectReference: {fileID: 991304339}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 066fb46c178a2f04d89940f1716c44bb, type: 3}

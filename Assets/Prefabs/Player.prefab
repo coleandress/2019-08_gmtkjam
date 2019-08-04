@@ -41,6 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8117191673925602405}
   - component: {fileID: 8117191673925602404}
+  - component: {fileID: 1403513857996388378}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -111,3 +112,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1403513857996388378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8117191673925602402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc7165f703e6c6f468913025770fc017, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _needToFart1: {fileID: 21300000, guid: 60bad629b4457e749986e521c0004f38, type: 3}
+  _needToFart2: {fileID: 21300000, guid: d5a76bfb0db4b854ab84adff9ead09b8, type: 3}
+  _needToFart3: {fileID: 21300000, guid: 3f6a8cc616b52bc4c896be534707e889, type: 3}
+  _farting: {fileID: 21300000, guid: f3e3dc9942bf4b549a0dbe220af0fd78, type: 3}
+  _loseSprite: {fileID: 21300000, guid: a9cfd51df5d85f2419f16818e1055f6a, type: 3}
+  _winSprite: {fileID: 21300000, guid: e6a4f0e29430515409409a67f629dc3e, type: 3}
+  _mainLoop: {fileID: 0}

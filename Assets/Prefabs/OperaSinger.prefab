@@ -70,7 +70,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: dce218b37f678f24bb747bbb4de7a323, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0a021f6a52f23b7448013de68ece9c1e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -95,13 +95,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteCycleTime: 0
   singingSprites:
-  - {fileID: 21300000, guid: dce218b37f678f24bb747bbb4de7a323, type: 3}
-  - {fileID: 21300000, guid: d7df7463a82a7e44481d45ef5f7c6772, type: 3}
-  - {fileID: 21300000, guid: b456c603e63e5754eb974e203085403c, type: 3}
-  glassWholeSprite: {fileID: 21300000, guid: d9a36ade553a4dd42a7e1095de056e0f, type: 3}
-  glassCrackedSprite: {fileID: 21300000, guid: 08e75d0b12959fe41a843709931797e0, type: 3}
-  glassBrokenSprite: {fileID: 21300000, guid: 014a29e46ba934b48a4f07a6ef25fd52, type: 3}
-  postGlassBrokenSprite: {fileID: 21300000, guid: 37e2e16317ea29b43a86ce7488d5df39,
+  - {fileID: 21300000, guid: 0a021f6a52f23b7448013de68ece9c1e, type: 3}
+  - {fileID: 21300000, guid: 382bf7c690ca06d41ad6dd2f49430ef3, type: 3}
+  - {fileID: 21300000, guid: 210754fad186b4544bfaa5d9181ac524, type: 3}
+  glassWholeSprite: {fileID: 21300000, guid: dd6d47be75b248245a871e9cbe289e04, type: 3}
+  glassCrackedSprite: {fileID: 21300000, guid: 28c5e58aead5f6542ba88211d25b10a9, type: 3}
+  glassBrokenSprite: {fileID: 21300000, guid: e63bb2386a36285458c983fbafdc3334, type: 3}
+  postGlassBrokenSprite: {fileID: 21300000, guid: d2babbd4744973d4397a08e4ef3e0454,
     type: 3}
   _mainLoop: {fileID: 0}
 --- !u!1 &1204384989748126270
