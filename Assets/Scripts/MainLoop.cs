@@ -111,19 +111,19 @@ public class MainLoop : MonoBehaviour
         }
 
         // Glass status changes
-        if (_musicTimer < EarliestFartTime - 5)
+        if (_songPlaying && _musicTimer < EarliestFartTime - 5)
         {
             _glassStatus = GlassStatus.GlassNotPresent;
         }
-        else if (_musicTimer < EarliestFartTime - 3)
+        else if (_songPlaying && _musicTimer < EarliestFartTime - 3)
         {
             _glassStatus = GlassStatus.GlassWhole;
         }
-        else if (_musicTimer < EarliestFartTime - 1)
+        else if (_songPlaying && _musicTimer < EarliestFartTime - 1)
         {
             _glassStatus = GlassStatus.GlassCracked;
         }
-        else if (_musicTimer > EarliestFartTime && _musicTimer < LatestFartTime)
+        else if (_songPlaying && _musicTimer > EarliestFartTime && _musicTimer < LatestFartTime)
         {
             _glassStatus = GlassStatus.GlassBroken;
         }

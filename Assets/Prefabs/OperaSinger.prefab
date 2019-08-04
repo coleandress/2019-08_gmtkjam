@@ -98,13 +98,13 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 0a021f6a52f23b7448013de68ece9c1e, type: 3}
   - {fileID: 21300000, guid: 382bf7c690ca06d41ad6dd2f49430ef3, type: 3}
   - {fileID: 21300000, guid: 210754fad186b4544bfaa5d9181ac524, type: 3}
-  - {fileID: 21300000, guid: d2babbd4744973d4397a08e4ef3e0454, type: 3}
+  - {fileID: 21300000, guid: 66f84bc76d71202479db3dc9fa698f41, type: 3}
   glassWholeSprite: {fileID: 21300000, guid: dd6d47be75b248245a871e9cbe289e04, type: 3}
   glassCrackedSprite:
   - {fileID: 21300000, guid: 28c5e58aead5f6542ba88211d25b10a9, type: 3}
   - {fileID: 21300000, guid: e4004bf69b63c3a4895514eb9708c037, type: 3}
   glassBrokenSprite: {fileID: 21300000, guid: e63bb2386a36285458c983fbafdc3334, type: 3}
-  postGlassBrokenSprite: {fileID: 21300000, guid: d2babbd4744973d4397a08e4ef3e0454,
+  postGlassBrokenSprite: {fileID: 21300000, guid: 66f84bc76d71202479db3dc9fa698f41,
     type: 3}
   _mainLoop: {fileID: 0}
 --- !u!1 &1204384989748126270

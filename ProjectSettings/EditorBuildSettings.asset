@@ -9,11 +9,23 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: ebc9790e448a89044a4b45b1f8603ec0
   - enabled: 1
-    path: Assets/Scenes/Africa.unity
-    guid: 0d6cd1c01cdd7f14998b25b6f4744079
+    path: Assets/Scenes/Habanera.unity
+    guid: 75f947dfef8799e499cd240501c06e65
   - enabled: 1
     path: Assets/Scenes/LetMyPeopleGo.unity
     guid: 87ed33133ed9f9a4eaca408674177043
+  - enabled: 1
+    path: Assets/Scenes/Troll.unity
+    guid: f6f09c161fe953944b1879fd03f3bc32
+  - enabled: 1
+    path: Assets/Scenes/Yoshi.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/BadGuy.unity
+    guid: b4cb76e7f3d870543997cbccec78e8d3
+  - enabled: 1
+    path: Assets/Scenes/Africa.unity
+    guid: 0d6cd1c01cdd7f14998b25b6f4744079
   - enabled: 1
     path: Assets/Scenes/Rapadoo.unity
     guid: 54b0d25794dd9694789761cb664595e9
@@ -21,14 +33,11 @@ EditorBuildSettings:
     path: Assets/Scenes/Meglovania.unity
     guid: d44cab74d3c64ce4fb55afa587e4f23a
   - enabled: 1
-    path: Assets/Scenes/Habanera.unity
-    guid: 75f947dfef8799e499cd240501c06e65
-  - enabled: 1
-    path: Assets/Scenes/Yoshi.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
     path: Assets/Scenes/JGWentworth.unity
     guid: 418681a37aed72f4b916f6095e736d6c
+  - enabled: 1
+    path: Assets/Scenes/YMCA.unity
+    guid: c27504d311a733d40996e0d9a9bafc88
   - enabled: 1
     path: Assets/Scenes/Win.unity
     guid: ac3cf698887e8854fb4188dffb21a3f9
